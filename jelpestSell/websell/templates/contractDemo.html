@@ -1,0 +1,17 @@
+{% extends 'header.html' %}
+
+{% block title %}Contratar Demo{% endblock title %}
+
+{% block body %}
+<div class="row">
+	<div class="col">
+		<form action="{% url 'contractDemo' %}" method="post">
+			{% csrf_token %}
+			{{form}}
+			<div class="form-group" style="margin-top: 1rem">
+				<button type="submit" class="btn btn-primary btn-block">Acceder</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock body %}
