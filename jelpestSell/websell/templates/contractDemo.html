@@ -1,19 +1,53 @@
-{% extends 'header.html' %}
+{% extends 'info.html' %}
 
 {% block title %}Contratar Demo{% endblock title %}
 
 {% block body %}
-<div class="container col-xxl-8 px-3 py-5">
+<div class="container" style="margin-top: 2rem">
 	<div class="row">
 		<div class="col">
-			<form action="{% url 'contractDemo' %}" method="post">
-				{% csrf_token %}
-				{{form}}
-				<div class="form-group" style="margin-top: 1rem">
-					<button type="submit" class="btn btn-primary btn-block">Acceder</button>
-				</div>
-			</form>
+			<div class="card">
+				<div class="card-body">
+				<form action="{% url 'contractDemo' %}" method="post">
+					{% csrf_token %}
+					{{form}}
+					<button type="submit" class="btn btn-primary mb-4" style="width: 100%">Enviar solicitud</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
 {% endblock body %}
+
+{% block css %}
+<style>
+	@media (min-width: 600px) {
+			.card {
+					margin: auto;
+					float: none;
+					width: 40%;
+			}
+	}
+
+	@media (max-width: 600px) {
+			.card {
+					margin: 0 auto;
+					float: none;
+			}
+	}
+</style>
+{% endblock css %}
+
+{% block javascript %}
+<script>
+    $(function () {
+      $("#datetimepicker").datetimepicker();
+    });
+
+		$(function () {
+			$("#datetimepicker").datetimepicker({
+				format: 'd/m/Y H:i',
+			});
+		});
+</script>
+{% endblock javascript %}
