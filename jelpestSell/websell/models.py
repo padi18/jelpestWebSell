@@ -10,8 +10,7 @@ class Demo(models.Model):
     email = models.EmailField(_("Correo electrónico"), max_length=254, db_column="email", null=False)
     phone = models.CharField(_("Teléfono"), max_length=50, db_column="phone", null=False)
     date = models.DateTimeField(_("Dia y Hora"), auto_now=False, auto_now_add=False, null=False, db_column="date")
-    restaurant_name = models.CharField(_("Nombre del restaurante"), max_length=100, null=False,
-                                       db_column="restaurant_name")
+    restaurant_name = models.CharField(_("Nombre del restaurante"), max_length=100, null=False, db_column="restaurant_name")
 
     class Meta:
         db_table = 'demos'
