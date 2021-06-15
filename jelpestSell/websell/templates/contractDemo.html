@@ -10,7 +10,9 @@
 				<div class="card-body">
 				<form action="{% url 'contractDemo' %}" method="post">
 					{% csrf_token %}
-					{{form}}
+					{% for field in form %}
+                        <b>{{ field.label_tag }}</b>{{ field }}
+                    {% endfor %}
 					<button type="submit" class="btn btn-primary mb-4" style="width: 100%">Enviar solicitud</button>
 				</form>
 			</div>
@@ -22,32 +24,37 @@
 {% block css %}
 <style>
 	@media (min-width: 600px) {
-			.card {
-					margin: auto;
-					float: none;
-					width: 40%;
-			}
+        .card {
+            margin: auto;
+            float: none;
+            width: 40%;
+            border: none !important;
+        }
 	}
 
 	@media (max-width: 600px) {
-			.card {
-					margin: 0 auto;
-					float: none;
-			}
+        .card {
+            margin: 0 auto;
+            float: none;
+            border: none !important;
+        }
 	}
 </style>
 {% endblock css %}
 
 {% block javascript %}
 <script>
-    $(function () {
-      $("#datetimepicker").datetimepicker();
-    });
+    $(document).ready(function() {
+        $(function () {
+            $("#datetimepicker").datetimepicker();
+        });
 
-		$(function () {
-			$("#datetimepicker").datetimepicker({
-				format: 'd/m/Y H:i',
-			});
-		});
+        $(function () {
+            $("#datetimepicker").datetimepicker({
+                format: 'd/m/Y H:i',
+            });
+        });
+    });
+    
 </script>
 {% endblock javascript %}
