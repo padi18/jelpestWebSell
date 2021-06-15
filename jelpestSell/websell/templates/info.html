@@ -22,7 +22,10 @@
     </header>
   </div>
 
-  {% block body %}{% endblock body %}
+	<div class="container" style="margin-top: 2rem">
+		{% include 'messages.html' %}
+  	{% block body %}{% endblock body %}
+  </div>
 
   <footer class="bd-footer py-5 mt-5">
 		<div class="container py-5">

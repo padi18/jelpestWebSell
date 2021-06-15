@@ -3,21 +3,19 @@
 {% block title %}Contratar Demo{% endblock title %}
 
 {% block body %}
-<div class="container" style="margin-top: 2rem">
-	<div class="row">
-		<div class="col">
-			<div class="card">
-				<div class="card-body">
-				<form action="{% url 'contractDemo' %}" method="post">
-					{% csrf_token %}
-					{% for field in form %}
-                        <b>{{ field.label_tag }}</b>{{ field }}
-                    {% endfor %}
-					<button type="submit" class="btn btn-primary mb-4" style="width: 100%">Enviar solicitud</button>
-				</form>
-			</div>
-		</div>
-	</div>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+            <form action="{% url 'contractDemo' %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <b>{{ field.label_tag }}</b>{{ field }}
+                {% endfor %}
+                <button type="submit" class="btn btn-primary mb-4" style="width: 100%">Enviar solicitud</button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock body %}
 

@@ -16,8 +16,10 @@ def contractDemo(request):
     if request.method == "POST":
         if form.is_valid():
             form.save()
-            messages.success("¡Gracias! Nos pondremos en contacto contigo para hacer una Demo.")
+            messages.success(request, "¡Gracias! Nos pondremos en contacto contigo para hacer una Demo.")
             return redirect("/")
+        else:
+            messages.error(request, form.errors)
     else:
         form = DemoForm()
 

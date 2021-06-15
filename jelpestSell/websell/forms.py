@@ -1,16 +1,17 @@
-from django.forms import fields, widgets
-from django.forms.models import ModelForm
+from datetime import datetime
 from .models import Demo
 from django import forms
 
 
-class DemoForm(ModelForm):
-    day = forms.DateTimeField(label="Día", input_formats=['%d/%m/%Y'], widget=forms.DateTimeInput(attrs={'type': 'date'}))
-    hour = forms.DateTimeField(label="Hora", input_formats=['%H:%M:%S'], widget=forms.DateTimeInput(attrs={'type': 'time'}))
+class DemoForm(forms.ModelForm):
 
     class Meta:
         model = Demo
         fields = '__all__'
+        widgets = {
+            'day' : forms.DateInput(attrs={'type': 'date', 'min': datetime.date.__str__}),
+            'hour' : forms.TimeInput(attrs={'type': 'time'})
+        }
 
     def __init__(self, *args, **kwargs):
         super(DemoForm, self).__init__(*args, **kwargs)
