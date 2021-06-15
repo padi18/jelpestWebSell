@@ -15,10 +15,14 @@
         <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
       </ul>
-
+      
+			
       <div class="col-md-3 text-end">
-        <a href="{% url 'contractDemo' %}" type="button" class="btn btn-primary">Solicitar Demo</a>
-      </div>
+				{% if request.path != "/demo/" %}
+      	  <a href="{% url 'contractDemo' %}" type="button" class="btn btn-primary">Solicitar Demo</a>
+      	{% endif %}
+			</div>
+			
     </header>
   </div>
 

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date
 from .models import Demo
 from django import forms
 
@@ -9,8 +9,8 @@ class DemoForm(forms.ModelForm):
         model = Demo
         fields = '__all__'
         widgets = {
-            'day' : forms.DateInput(attrs={'type': 'date', 'min': datetime.date.__str__}),
-            'hour' : forms.TimeInput(attrs={'type': 'time'})
+            'day' : forms.DateInput(attrs={'type': 'date', 'min': date.today()}),
+            'hour' : forms.TimeInput(attrs={'type': 'time', 'min': '08:00', 'max': '20:00'})
         }
 
     def __init__(self, *args, **kwargs):

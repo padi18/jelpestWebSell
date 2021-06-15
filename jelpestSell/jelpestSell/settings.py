@@ -138,3 +138,8 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+# https://docs.djangoproject.com/en/3.2/topics/email/
+
+EMAIL_HOST = 'localhost' 
+EMAIL_PORT = 25
