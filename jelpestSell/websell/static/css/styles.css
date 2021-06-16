@@ -2,3 +2,8 @@
     background-color: rgb(46, 136, 240) !important;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
+
+.btn-outline-primary:active {
+    background-color: rgb(46, 136, 240) !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
