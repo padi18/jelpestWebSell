@@ -1,4 +1,5 @@
 {% extends 'info.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block title %}Jelpest{% endblock title %}
@@ -14,7 +15,7 @@
 	</div>
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5 my-5">
 		<div class="col-lg-6 mb-5">
-			<h1 class="display-5 fw-bold lh-1 mb-3">El cliente pide y paga desde tu mesa</h1>
+			<h1 class="display-5 fw-bold lh-1 mb-3"> {% trans "El cliente pide y paga desde tu mesa" %}</h1>
 			<p class="lead">
                 Con esta opción, tu mayor prioridad será servir para que así no inviertas tiempo en tomar nota o cobrar
 			</p>
@@ -31,9 +32,6 @@
 
 {% block css %}
 <style>
-    body {
-        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(255,255,255,1) 0%, rgba(224,253,255,1) 80%, rgba(45,241,253,1) 100%);
-    }
 </style>
  
 {% endblock css %}

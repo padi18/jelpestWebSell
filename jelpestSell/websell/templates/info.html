@@ -19,8 +19,8 @@
 			
       <div class="col-md-3 text-end">
 				{% if request.path != "/demo/" %}
-      	  <a href="{% url 'contractDemo' %}" type="button" class="btn btn-primary">Solicitar Demo</a>
-      	{% endif %}
+					<a href="{% url 'contractDemo' %}" type="button" class="btn btn-primary">Solicitar Demo</a>
+				{% endif %}
 			</div>
 			
     </header>
@@ -28,8 +28,8 @@
 
 	<div class="container col-xxl-8 px-3 py-5 mt-10" style="margin-top: 2rem">
 		{% include 'messages.html' %}
-        {% block body %}{% endblock body %}
-    </div>
+		{% block body %}{% endblock body %}
+	</div>
 
   <footer class="bd-footer py-5 mt-5">
 		<div class="container py-5 text-center">

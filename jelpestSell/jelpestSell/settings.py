@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
+from django.conf import global_settings
 from pathlib import Path
 
 from django.contrib import messages
@@ -27,7 +29,7 @@ SECRET_KEY = 'django-insecure-+t1ejk@xv3c95xpt=1t@2_6@hp(=s&@-2x34vdn&+%(70@184g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['51.210.181.115']
+ALLOWED_HOSTS = ['51.210.181.115', 'localhost', ]
 
 
 # Application definition
@@ -46,10 +48,12 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'jelpestSell.urls'
@@ -110,7 +114,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
+_ = lambda s: s
+
+LANGUAGES = (
+ ('es', _('Espanish')),
+ ('zh', _('Chinese')),
+ ('en', _('English')),
+)
 
 TIME_ZONE = 'UTC'
 
@@ -120,6 +131,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale"),
+)
+
+#TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.i18n',)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
